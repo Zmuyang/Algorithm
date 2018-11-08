@@ -17,7 +17,11 @@ int Merge(int lenA,int lenB){
 	int index=0,i=0,j=0;
 	while( i<lenA && j<lenB ){
 		if(A[i]<B[j]) C[index++] = A[i++];
-		else C[index++] = B[j++];
+		else if(A[i]>B[j]) C[index++] = B[j++];
+		else {
+			C[index++] = A[i++];
+			j++;
+		}
 	}
 	while(i<lenA) C[index++]=A[i++];
 	while(j<lenB) C[index++]=B[j++];
